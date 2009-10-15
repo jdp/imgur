@@ -9,9 +9,11 @@ begin
     gem.description = %Q{An interface to the Imgur API}
     gem.email = "jdp34@njit.edu"
     gem.homepage = "http://github.com/jdp/imgur"
-    gem.authors = ["jdp"]
-    gem.add_development_dependency "bacon"
-    gem.add_development_dependency "yard"
+    gem.authors = ["Justin Poliey"]
+    gem.add_development_dependency "bacon", ">= 1.1.0"
+    gem.add_development_dependency "yard", ">= 0.2.3.5"
+    gem.add_development_dependency "curb", ">= 0.5.4.0"
+    gem.add_development_dependency "crack", ">= 0.1.4"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new

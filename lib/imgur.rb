@@ -1,5 +1,6 @@
-require 'httparty'
-require 'pp'
+require 'curb'
+require 'crack/json'
+require 'cgi'
 
 # @author Justin Poliey
 # Imgur module
@@ -14,33 +15,9 @@ module Imgur
 		end
 		
 	end
-	
-	# Image data container
-	class Image
-	
-		attr_accessor :image_hash, :delete_hash
-		attr_accessor :original_image
-		attr_accessor :large_thumbnail, :small_thumbnail
-		attr_accessor :imgur_page, :delete_page
-		
-		def initialize image_info
-			image_hash = image_info["image_hash"]
-			delete_hash = image_info["delete_hash"]
-			original_image = image_info["original_image"]
-			large_thumbnail = image_info["large_thumbnail"]
-			small_thumbnail = image_info["small_thumbnail"]
-			imgur_page = image_info["imgur_page"]
-			delete_page = image_info["delete_page"]
-		end
-		
-	end
 
 	# Imgur API interface
 	class API
-		include HTTParty
-
-		base_uri 'imgur.com/api'
-		format :json
 
 		# Creates a new Imgur API instance
 		#
@@ -50,17 +27,31 @@ module Imgur
 			@api_key = api_key
 		end
 
-		# Uploads an image from local disk, a Base64 encoded string, or a URL
+		# Uploads an image from local disk
 		#
-		# @param [String] image The image data. If uploading from local disk, prefix the filename with an @
-		# @return [Image] Image data
-		def upload image
-			options = { :query => { :key => @api_key, :image => image } }
-			response = self.class.post('/upload.json', options)
-			#raise ImgurError, response["rsp"]["error_msg"] if response["rsp"]["stat"] == "fail"
-			puts response
-			#Image.new(response["rsp"]["image"])
-			response
+		# @param [String] image_filename The filename of the image on disk to upload
+		# @raise [ImgurError]
+		# @return [Hash] Image data
+		def upload_file image_filename
+			c = Curl::Easy.new("http://imgur.com/api/upload.json")
+			c.multipart_form_post = true
+			c.http_post(Curl::PostField.content('key', @api_key), Curl::PostField.file('image', image_filename))
+			response = Crack::JSON.parse c.body_str
+			raise ImgurError, response["rsp"]["error_msg"] if response["rsp"]["stat"] == "fail"
+			response["rsp"]["image"]
+		end
+		
+		# Uploads a file from a remote URL
+		#
+		# @param [String] image_url The URL of the image to upload
+		# @raise [ImgurError]
+		# @return [Hash] Image data
+		def upload_from_url image_url
+			c = Curl::Easy.new("http://imgur.com/api/upload.json")
+			c.http_post(Curl::PostField.content('key', @api_key), Curl::PostField.content('image', image_url))
+			response = Crack::JSON.parse c.body_str
+			raise ImgurError, response["rsp"]["error_msg"] if response["rsp"]["stat"] == "fail"
+			response["rsp"]["image"]
 		end
 
 		# Returns a set of images in gallery format based on your specifications
@@ -70,22 +61,26 @@ module Imgur
 		# @option params [String] :view Date limit, values are `:week`, `:month`, or `:all`
 		# @option params [Integer] :count (20) Number of images to return between 0 and 50
 		# @option params [Integer] :page (1) Which page of images to display
-		# @return [Array<Image>] Array of image data objects
+		# @raise [ImgurError]
+		# @return [Array<Hash>] Array of image data hashes
 		def gallery params = {}
-			options = { :query => { :key => @api_key } }
-			options[:query].merge!(params)
-			response = self.class.get('/gallery.json', options)
+			post_fields = params.collect { |k, v| CGI::escape(k.to_s) + '=' + CGI::escape(v.to_s) }.join('&')
+			c = Curl::Easy.new("http://imgur.com/api/gallery.json?#{post_fields}")
+			c.http_get
+			response = Crack::JSON.parse c.body_str
 			raise ImgurError, response["error"]["error_msg"] if response.key?("error")
-			response["images"].to_a.collect { |hash, info| Image.new(info) }
+			response["images"].to_a.collect { |hash, info| info }
 		end
 
 		# Returns statistics for a specific image, like size, type, and bandwidth usage
 		#
 		# @param [String] image_hash Imgur's hash of the image
+		# @raise [ImgurError]
 		# @return [Hash] Image statistics
 		def image_stats image_hash
-			options = { :query => { :key => @api_key } }
-			response = self.class.get("/stats/#{image_hash}.json", options)
+			c = Curl::Easy.new("http://imgur.com/api/stats/#{image_hash}.json")
+			c.http_get
+			response = Crack::JSON.parse c.body_str
 			raise ImgurError, response["error"]["error_msg"] if response.key?("error")
 			response["stats"]
 		end
@@ -96,9 +91,9 @@ module Imgur
 		# @param [String] delete_hash Imgur's delete hash of the image
 		# @return [Boolean] Whether or not the image was deleted 
 		def delete image_hash
-			options = { :query => { :key => @api_key } }
-			response = self.class.get("/delete/#{image_hash}.json", options)
-			raise ImgurError, response["rsp"]["error_msg"] if response["rsp"]["stat"] == "fail"
+			c = Curl::Easy.new("http://imgur.com/api/delete/#{image_hash}.json?key=#{@api_key}")
+			c.http_get
+			response = Crack::JSON.parse c.body_str
 			response["rsp"]["stat"] == "ok"
 		end
 
