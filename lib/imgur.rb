@@ -4,10 +4,10 @@ require 'httparty'
 module Imgur
 
 	# General Imgur error container
-	class ImgurError < StandardError
+	class ImgurError < RuntimeError
 		
-		def initialize data
-			@data = data
+		def initialize message
+			@message = message
 			super
 		end
 		
@@ -50,11 +50,8 @@ module Imgur
 			options = { :query => { :key => @api_key } }
 			options[:query].merge!(params)
 			response = self.class.get('/gallery.json', options)
-			if response.key?(:error)
-				throw ImgurError.new(response[:error][:error_msg])
-			else
-				response[:images]
-			end
+			raise ImgurError, response["error"]["error_msg"] if response.key?("error")
+			response["images"]
 		end
 
 		# Returns statistics for a specific image, like size, type, and bandwidth usage
@@ -64,7 +61,7 @@ module Imgur
 		def image_stats image_hash
 			options = { :query => { :key => @api_key } }
 			response = self.class.get("/stats/#{image_hash}.json", options)
-			response[:rsp]
+			response["rsp"]
 		end
 
 		# Deletes the image with the specified hash
