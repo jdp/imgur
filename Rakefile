@@ -5,8 +5,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "imgur"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{Imgur API interface}
+    gem.description = %Q{An interface to the Imgur API}
     gem.email = "jdp34@njit.edu"
     gem.homepage = "http://github.com/jdp/imgur"
     gem.authors = ["jdp"]
