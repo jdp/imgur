@@ -23,3 +23,11 @@ describe "A more complicated gallery request" do
 	end
 	
 end
+
+describe "An invalid gallery request" do
+
+	it "should raise an ImgurError exception" do
+		should.raise(Imgur::ImgurError) { $imgur.gallery :sort => :invalid }
+	end
+	
+end
