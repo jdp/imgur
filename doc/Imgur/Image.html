@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../style.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../custom.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../syntax_highlight.css" type="text/css" charset="utf-8" />
+
+    <script src="../jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../app.js" type="text/javascript" charset="utf-8"></script>
+    <title>Class: Imgur::Image</title>
+  </head>
+  <body>
+    <div id="content">
+      <div class="section class Imgur_Image">
+  <h1 class="title">Class: Imgur::Image</h1>
+  <div class="section docstring">
+  <p>
+Image data container
+</p>
+
+</div><div class="section attributes">
+  <h1>Attributes</h1>
+
+  
+    <div class="instance">
+      <h2>Instance Attributes</h2>
+      <table>
+      
+        
+        <tr class="">
+          <th class='signature'>
+            <span class='name'>delete_hash</span>
+          </td>
+          <td class="readwrite">
+            [<span id='delete_hash-instance_method'>R</span><span id='delete_hash=-instance_method'>W</span>] 
+          </td>
+          <td class="visibility">
+            public
+          </td>
+          <td class="docstring">
+            <p>
+Sets the attribute <tt>delete_hash</tt>.
+</p>
+
+            
+          </td>
+        </tr>
+        
+      
+        
+        <tr class="">
+          <th class='signature'>
+            <span class='name'>delete_page</span>
+          </td>
+          <td class="readwrite">
+            [<span id='delete_page-instance_method'>R</span><span id='delete_page=-instance_method'>W</span>] 
+          </td>
+          <td class="visibility">
+            public
+          </td>
+          <td class="docstring">
+            <p>
+Sets the attribute <tt>delete_page</tt>.
+</p>
+
+            
+          </td>
+        </tr>
+        
+      
+        
+        <tr class="">
+          <th class='signature'>
+            <span class='name'>image_hash</span>
+          </td>
+          <td class="readwrite">
+            [<span id='image_hash-instance_method'>R</span><span id='image_hash=-instance_method'>W</span>] 
+          </td>
+          <td class="visibility">
+            public
+          </td>
+          <td class="docstring">
+            <p>
+Sets the attribute <tt>image_hash</tt>.
+</p>
+
+            
+          </td>
+        </tr>
+        
+      
+        
+        <tr class="">
+          <th class='signature'>
+            <span class='name'>imgur_page</span>
+          </td>
+          <td class="readwrite">
+            [<span id='imgur_page-instance_method'>R</span><span id='imgur_page=-instance_method'>W</span>] 
+          </td>
+          <td class="visibility">
+            public
+          </td>
+          <td class="docstring">
+            <p>
+Sets the attribute <tt>imgur_page</tt>.
+</p>
+
+            
+          </td>
+        </tr>
+        
+      
+        
+        <tr class="">
+          <th class='signature'>
+            <span class='name'>large_thumbnail</span>
+          </td>
+          <td class="readwrite">
+            [<span id='large_thumbnail-instance_method'>R</span><span id='large_thumbnail=-instance_method'>W</span>] 
+          </td>
+          <td class="visibility">
+            public
+          </td>
+          <td class="docstring">
+            <p>
+Sets the attribute <tt>large_thumbnail</tt>.
+</p>
+
+            
+          </td>
+        </tr>
+        
+      
+        
+        <tr class="">
+          <th class='signature'>
+            <span class='name'>original_image</span>
+          </td>
+          <td class="readwrite">
+            [<span id='original_image-instance_method'>R</span><span id='original_image=-instance_method'>W</span>] 
+          </td>
+          <td class="visibility">
+            public
+          </td>
+          <td class="docstring">
+            <p>
+Sets the attribute <tt>original_image</tt>.
+</p>
+
+            
+          </td>
+        </tr>
+        
+      
+        
+        <tr class="">
+          <th class='signature'>
+            <span class='name'>small_thumbnail</span>
+          </td>
+          <td class="readwrite">
+            [<span id='small_thumbnail-instance_method'>R</span><span id='small_thumbnail=-instance_method'>W</span>] 
+          </td>
+          <td class="visibility">
+            public
+          </td>
+          <td class="docstring">
+            <p>
+Sets the attribute <tt>small_thumbnail</tt>.
+</p>
+
+            
+          </td>
+        </tr>
+        
+      
+      </table>
+    </div>
+  
+</div>
+<div class="section constants">
+  
+</div><div class="section constructor">
+<h1>Constructor Summary</h1>
+  <div id="initialize-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>initialize</span><span class='args'>(image_info)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/imgur.rb', line 25</span>
+
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span> <span class='image_info identifier id'>image_info</span>
+  <span class='image_hash identifier id'>image_hash</span> <span class='assign token'>=</span> <span class='image_info identifier id'>image_info</span><span class='lbrack token'>[</span><span class='string val'>&quot;image_hash&quot;</span><span class='rbrack token'>]</span>
+  <span class='delete_hash identifier id'>delete_hash</span> <span class='assign token'>=</span> <span class='image_info identifier id'>image_info</span><span class='lbrack token'>[</span><span class='string val'>&quot;delete_hash&quot;</span><span class='rbrack token'>]</span>
+  <span class='original_image identifier id'>original_image</span> <span class='assign token'>=</span> <span class='image_info identifier id'>image_info</span><span class='lbrack token'>[</span><span class='string val'>&quot;original_image&quot;</span><span class='rbrack token'>]</span>
+  <span class='large_thumbnail identifier id'>large_thumbnail</span> <span class='assign token'>=</span> <span class='image_info identifier id'>image_info</span><span class='lbrack token'>[</span><span class='string val'>&quot;large_thumbnail&quot;</span><span class='rbrack token'>]</span>
+  <span class='small_thumbnail identifier id'>small_thumbnail</span> <span class='assign token'>=</span> <span class='image_info identifier id'>image_info</span><span class='lbrack token'>[</span><span class='string val'>&quot;small_thumbnail&quot;</span><span class='rbrack token'>]</span>
+  <span class='imgur_page identifier id'>imgur_page</span> <span class='assign token'>=</span> <span class='image_info identifier id'>image_info</span><span class='lbrack token'>[</span><span class='string val'>&quot;imgur_page&quot;</span><span class='rbrack token'>]</span>
+  <span class='delete_page identifier id'>delete_page</span> <span class='assign token'>=</span> <span class='image_info identifier id'>image_info</span><span class='lbrack token'>[</span><span class='string val'>&quot;delete_page&quot;</span><span class='rbrack token'>]</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+</div>
+</div>
+    </div>
+    <div id="yard_info">
+  Generated on Thursday, October 15 2009 at 01:58:08 PM by 
+  <abbr class="yard" title="Yay! A Ruby Documentation Tool"><a href="http://yard.soen.ca">YARD</a></abbr> 
+  0.2.3.5 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

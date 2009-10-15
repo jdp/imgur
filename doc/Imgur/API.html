@@ -1,0 +1,862 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../style.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../custom.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../syntax_highlight.css" type="text/css" charset="utf-8" />
+
+    <script src="../jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../app.js" type="text/javascript" charset="utf-8"></script>
+    <title>Class: Imgur::API</title>
+  </head>
+  <body>
+    <div id="content">
+      <div class="section class Imgur_API">
+  <h1 class="title">Class: Imgur::API</h1>
+  <div class="section docstring">
+  <p>
+Imgur API interface
+</p>
+
+</div><div class="section constants">
+  
+</div><div class="section constructor">
+<h1>Constructor Summary</h1>
+  <div id="initialize-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'><tt><a title="API" href="">API</a></tt></span>
+      <span class='name'>initialize</span><span class='args'>(api_key)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Creates a new Imgur API instance
+</p>
+
+</div><div class="section tags">
+  <h2>Meta Tags</h2>
+  <div class="param">
+  <h3>Parameters:</h3>
+  <dl>
+  
+    
+      <dt>
+        <span class='type'>[<tt>String</tt>]</span>
+        <span class='name'>api_key</span>
+        
+      </dt>
+      <dd>
+        <span class='desc'><p>
+Your API key from http://imgur.com/register/api/
+</p>
+</span>
+      </dd>
+    
+  
+  </dl>
+</div><div class="return">
+  <h3>Returns:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt><a title="API" href="">API</a></tt>]</span>
+      
+      
+        <span class='name'></span>
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+An Imgur API instance
+</p>
+</span>
+    </dd>
+  
+  </dl>
+</div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+27
+28
+29</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/imgur.rb', line 27</span>
+
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span> <span class='api_key identifier id'>api_key</span>
+  <span class='@api_key ivar id'>@api_key</span> <span class='assign token'>=</span> <span class='api_key identifier id'>api_key</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+</div>  <div class="section visibilitygroup public">
+    <h1>Public Visibility</h1>
+      <div class="section methodsummary instance public">
+    <h1>Public Instance Method Summary</h1>
+<table class="summary">
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a title="#delete" href="#delete-instance_method">#delete</a></span><span class='args'>(image_hash)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Deletes the image with the specified delete hash.
+</p>
+
+        
+          <p class='returns'>
+            Returns: 
+              <span class='return_types'>
+                 <tt>Boolean</tt>
+              </span>
+          </p>
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a title="#gallery" href="#gallery-instance_method">#gallery</a></span><span class='args'>(params = {})</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Returns a set of images in gallery format based on your specifications.
+</p>
+
+        
+          <p class='returns'>
+            Returns: 
+              <span class='return_types'>
+                 <tt>Array&lt;Hash></tt>
+              </span>
+          </p>
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a title="#image_stats" href="#image_stats-instance_method">#image_stats</a></span><span class='args'>(image_hash)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Returns statistics for a specific image, like size, type, and bandwidth
+usage.
+</p>
+
+        
+          <p class='returns'>
+            Returns: 
+              <span class='return_types'>
+                 <tt>Hash</tt>
+              </span>
+          </p>
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a title="#upload_file" href="#upload_file-instance_method">#upload_file</a></span><span class='args'>(image_filename)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Uploads an image from local disk.
+</p>
+
+        
+          <p class='returns'>
+            Returns: 
+              <span class='return_types'>
+                 <tt>Hash</tt>
+              </span>
+          </p>
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a title="#upload_from_url" href="#upload_from_url-instance_method">#upload_from_url</a></span><span class='args'>(image_url)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Uploads a file from a remote URL.
+</p>
+
+        
+          <p class='returns'>
+            Returns: 
+              <span class='return_types'>
+                 <tt>Hash</tt>
+              </span>
+          </p>
+        
+      </td>
+    </tr>
+  
+</table>
+
+  </div>
+<div class="section methoddetails instance public">
+  <h1>Public Instance Method Details</h1>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>delete</h3>
+</div><div id="delete-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'><tt>Boolean</tt></span>
+      <span class='name'>delete</span><span class='args'>(image_hash)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Deletes the image with the specified delete hash. Delete hashes are not the
+same as image hashes, they are two separate hashes.
+</p>
+
+</div><div class="section tags">
+  <h2>Meta Tags</h2>
+  <div class="return">
+  <h3>Returns:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt>Boolean</tt>]</span>
+      
+      
+        <span class='name'></span>
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+Whether or not the image was deleted
+</p>
+</span>
+    </dd>
+  
+  </dl>
+</div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+94
+95
+96
+97
+98
+99</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/imgur.rb', line 94</span>
+
+<span class='def def kw'>def</span> <span class='delete identifier id'>delete</span> <span class='image_hash identifier id'>image_hash</span>
+  <span class='c identifier id'>c</span> <span class='assign token'>=</span> <span class='Curl constant id'>Curl</span><span class='colon2 op'>::</span><span class='Easy constant id'>Easy</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='dstring node'>&quot;http://imgur.com/api/delete/#{image_hash}.json?key=#{@api_key}&quot;</span><span class='rparen token'>)</span>
+  <span class='c identifier id'>c</span><span class='dot token'>.</span><span class='http_get identifier id'>http_get</span>
+  <span class='response identifier id'>response</span> <span class='assign token'>=</span> <span class='Crack constant id'>Crack</span><span class='colon2 op'>::</span><span class='JSON constant id'>JSON</span><span class='dot token'>.</span><span class='parse identifier id'>parse</span> <span class='c identifier id'>c</span><span class='dot token'>.</span><span class='body_str identifier id'>body_str</span>
+  <span class='response identifier id'>response</span><span class='lbrack token'>[</span><span class='string val'>&quot;rsp&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>&quot;stat&quot;</span><span class='rbrack token'>]</span> <span class='eq op'>==</span> <span class='string val'>&quot;ok&quot;</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>gallery</h3>
+</div><div id="gallery-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'><tt>Array&lt;Hash></tt></span>
+      <span class='name'>gallery</span><span class='args'>(params = {})</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Returns a set of images in gallery format based on your specifications
+</p>
+
+</div><div class="section tags">
+  <h2>Meta Tags</h2>
+  <div class="param">
+  <h3>Parameters:</h3>
+  <dl>
+  
+    
+      <dt>Options Hash <tt>params</tt></dt>
+<dd>
+  <div class="option">
+    <table>
+      <tr>
+        <th class="name">Key Name</th>
+        <th class="default">Default Value</th>
+        <th class="type">Accepted Types</th>
+        <th class="desc">Description</th>
+      </tr>
+      
+        <tr>
+          <td class="name">:sort</td>
+          <td class="default">
+            
+              <span class="na">N/A</span>
+            
+          </td>
+          <td class="type">[<tt>String</tt>]</td>
+          <td class="desc"><p>
+Sort order, values are `:latest` or `:popular`
+</p>
+</td>
+        </tr>
+      
+        <tr>
+          <td class="name">:view</td>
+          <td class="default">
+            
+              <span class="na">N/A</span>
+            
+          </td>
+          <td class="type">[<tt>String</tt>]</td>
+          <td class="desc"><p>
+Date limit, values are `:week`, `:month`, or `:all`
+</p>
+</td>
+        </tr>
+      
+        <tr>
+          <td class="name">:count</td>
+          <td class="default">
+            
+              <tt>20</tt>
+            
+          </td>
+          <td class="type">[<tt>Integer</tt>]</td>
+          <td class="desc"><p>
+Number of images to return between 0 and 50
+</p>
+</td>
+        </tr>
+      
+        <tr>
+          <td class="name">:page</td>
+          <td class="default">
+            
+              <tt>1</tt>
+            
+          </td>
+          <td class="type">[<tt>Integer</tt>]</td>
+          <td class="desc"><p>
+Which page of images to display
+</p>
+</td>
+        </tr>
+      
+    </table>
+  </div>
+</dd>
+
+    
+  
+  </dl>
+</div><div class="return">
+  <h3>Returns:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt>Array&lt;Hash></tt>]</span>
+      
+      
+        <span class='name'></span>
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+Array of image data hashes
+</p>
+</span>
+    </dd>
+  
+  </dl>
+</div>
+<div class="raise">
+  <h3>Raises:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt><a title="ImgurError" href="ImgurError.html">ImgurError</a></tt>]</span>
+      
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'></span>
+    </dd>
+  
+  </dl>
+</div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+67</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/imgur.rb', line 67</span>
+
+<span class='def def kw'>def</span> <span class='gallery identifier id'>gallery</span> <span class='params identifier id'>params</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>image_stats</h3>
+</div><div id="image_stats-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'><tt>Hash</tt></span>
+      <span class='name'>image_stats</span><span class='args'>(image_hash)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Returns statistics for a specific image, like size, type, and bandwidth
+usage
+</p>
+
+</div><div class="section tags">
+  <h2>Meta Tags</h2>
+  <div class="param">
+  <h3>Parameters:</h3>
+  <dl>
+  
+    
+      <dt>
+        <span class='type'>[<tt>String</tt>]</span>
+        <span class='name'>image_hash</span>
+        
+      </dt>
+      <dd>
+        <span class='desc'><p>
+Imgur&#8217;s hash of the image
+</p>
+</span>
+      </dd>
+    
+  
+  </dl>
+</div><div class="return">
+  <h3>Returns:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt>Hash</tt>]</span>
+      
+      
+        <span class='name'></span>
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+Image statistics
+</p>
+</span>
+    </dd>
+  
+  </dl>
+</div>
+<div class="raise">
+  <h3>Raises:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt><a title="ImgurError" href="ImgurError.html">ImgurError</a></tt>]</span>
+      
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'></span>
+    </dd>
+  
+  </dl>
+</div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+81
+82
+83
+84
+85
+86
+87</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/imgur.rb', line 81</span>
+
+<span class='def def kw'>def</span> <span class='image_stats identifier id'>image_stats</span> <span class='image_hash identifier id'>image_hash</span>
+  <span class='c identifier id'>c</span> <span class='assign token'>=</span> <span class='Curl constant id'>Curl</span><span class='colon2 op'>::</span><span class='Easy constant id'>Easy</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='dstring node'>&quot;http://imgur.com/api/stats/#{image_hash}.json&quot;</span><span class='rparen token'>)</span>
+  <span class='c identifier id'>c</span><span class='dot token'>.</span><span class='http_get identifier id'>http_get</span>
+  <span class='response identifier id'>response</span> <span class='assign token'>=</span> <span class='Crack constant id'>Crack</span><span class='colon2 op'>::</span><span class='JSON constant id'>JSON</span><span class='dot token'>.</span><span class='parse identifier id'>parse</span> <span class='c identifier id'>c</span><span class='dot token'>.</span><span class='body_str identifier id'>body_str</span>
+  <span class='raise identifier id'>raise</span> <span class='ImgurError constant id'>ImgurError</span><span class='comma token'>,</span> <span class='response identifier id'>response</span><span class='lbrack token'>[</span><span class='string val'>&quot;error&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>&quot;error_msg&quot;</span><span class='rbrack token'>]</span> <span class='if if_mod kw'>if</span> <span class='response identifier id'>response</span><span class='dot token'>.</span><span class='key? fid id'>key?</span><span class='lparen token'>(</span><span class='string val'>&quot;error&quot;</span><span class='rparen token'>)</span>
+  <span class='response identifier id'>response</span><span class='lbrack token'>[</span><span class='string val'>&quot;stats&quot;</span><span class='rbrack token'>]</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>upload_file</h3>
+</div><div id="upload_file-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'><tt>Hash</tt></span>
+      <span class='name'>upload_file</span><span class='args'>(image_filename)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Uploads an image from local disk
+</p>
+
+</div><div class="section tags">
+  <h2>Meta Tags</h2>
+  <div class="param">
+  <h3>Parameters:</h3>
+  <dl>
+  
+    
+      <dt>
+        <span class='type'>[<tt>String</tt>]</span>
+        <span class='name'>image_filename</span>
+        
+      </dt>
+      <dd>
+        <span class='desc'><p>
+The filename of the image on disk to upload
+</p>
+</span>
+      </dd>
+    
+  
+  </dl>
+</div><div class="return">
+  <h3>Returns:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt>Hash</tt>]</span>
+      
+      
+        <span class='name'></span>
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+Image data
+</p>
+</span>
+    </dd>
+  
+  </dl>
+</div>
+<div class="raise">
+  <h3>Raises:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt><a title="ImgurError" href="ImgurError.html">ImgurError</a></tt>]</span>
+      
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'></span>
+    </dd>
+  
+  </dl>
+</div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+36
+37
+38
+39
+40
+41
+42
+43</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/imgur.rb', line 36</span>
+
+<span class='def def kw'>def</span> <span class='upload_file identifier id'>upload_file</span> <span class='image_filename identifier id'>image_filename</span>
+  <span class='c identifier id'>c</span> <span class='assign token'>=</span> <span class='Curl constant id'>Curl</span><span class='colon2 op'>::</span><span class='Easy constant id'>Easy</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>&quot;http://imgur.com/api/upload.json&quot;</span><span class='rparen token'>)</span>
+  <span class='c identifier id'>c</span><span class='dot token'>.</span><span class='multipart_form_post identifier id'>multipart_form_post</span> <span class='assign token'>=</span> <span class='true true kw'>true</span>
+  <span class='c identifier id'>c</span><span class='dot token'>.</span><span class='http_post identifier id'>http_post</span><span class='lparen token'>(</span><span class='Curl constant id'>Curl</span><span class='colon2 op'>::</span><span class='PostField constant id'>PostField</span><span class='dot token'>.</span><span class='content identifier id'>content</span><span class='lparen token'>(</span><span class='string val'>'key'</span><span class='comma token'>,</span> <span class='@api_key ivar id'>@api_key</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='Curl constant id'>Curl</span><span class='colon2 op'>::</span><span class='PostField constant id'>PostField</span><span class='dot token'>.</span><span class='file identifier id'>file</span><span class='lparen token'>(</span><span class='string val'>'image'</span><span class='comma token'>,</span> <span class='image_filename identifier id'>image_filename</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='response identifier id'>response</span> <span class='assign token'>=</span> <span class='Crack constant id'>Crack</span><span class='colon2 op'>::</span><span class='JSON constant id'>JSON</span><span class='dot token'>.</span><span class='parse identifier id'>parse</span> <span class='c identifier id'>c</span><span class='dot token'>.</span><span class='body_str identifier id'>body_str</span>
+  <span class='raise identifier id'>raise</span> <span class='ImgurError constant id'>ImgurError</span><span class='comma token'>,</span> <span class='response identifier id'>response</span><span class='lbrack token'>[</span><span class='string val'>&quot;rsp&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>&quot;error_msg&quot;</span><span class='rbrack token'>]</span> <span class='if if_mod kw'>if</span> <span class='response identifier id'>response</span><span class='lbrack token'>[</span><span class='string val'>&quot;rsp&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>&quot;stat&quot;</span><span class='rbrack token'>]</span> <span class='eq op'>==</span> <span class='string val'>&quot;fail&quot;</span>
+  <span class='response identifier id'>response</span><span class='lbrack token'>[</span><span class='string val'>&quot;rsp&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>&quot;image&quot;</span><span class='rbrack token'>]</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>upload_from_url</h3>
+</div><div id="upload_from_url-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'><tt>Hash</tt></span>
+      <span class='name'>upload_from_url</span><span class='args'>(image_url)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Uploads a file from a remote URL
+</p>
+
+</div><div class="section tags">
+  <h2>Meta Tags</h2>
+  <div class="param">
+  <h3>Parameters:</h3>
+  <dl>
+  
+    
+      <dt>
+        <span class='type'>[<tt>String</tt>]</span>
+        <span class='name'>image_url</span>
+        
+      </dt>
+      <dd>
+        <span class='desc'><p>
+The URL of the image to upload
+</p>
+</span>
+      </dd>
+    
+  
+  </dl>
+</div><div class="return">
+  <h3>Returns:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt>Hash</tt>]</span>
+      
+      
+        <span class='name'></span>
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+Image data
+</p>
+</span>
+    </dd>
+  
+  </dl>
+</div>
+<div class="raise">
+  <h3>Raises:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt><a title="ImgurError" href="ImgurError.html">ImgurError</a></tt>]</span>
+      
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'></span>
+    </dd>
+  
+  </dl>
+</div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+50
+51
+52
+53
+54
+55
+56</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/imgur.rb', line 50</span>
+
+<span class='def def kw'>def</span> <span class='upload_from_url identifier id'>upload_from_url</span> <span class='image_url identifier id'>image_url</span>
+  <span class='c identifier id'>c</span> <span class='assign token'>=</span> <span class='Curl constant id'>Curl</span><span class='colon2 op'>::</span><span class='Easy constant id'>Easy</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>&quot;http://imgur.com/api/upload.json&quot;</span><span class='rparen token'>)</span>
+  <span class='c identifier id'>c</span><span class='dot token'>.</span><span class='http_post identifier id'>http_post</span><span class='lparen token'>(</span><span class='Curl constant id'>Curl</span><span class='colon2 op'>::</span><span class='PostField constant id'>PostField</span><span class='dot token'>.</span><span class='content identifier id'>content</span><span class='lparen token'>(</span><span class='string val'>'key'</span><span class='comma token'>,</span> <span class='@api_key ivar id'>@api_key</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='Curl constant id'>Curl</span><span class='colon2 op'>::</span><span class='PostField constant id'>PostField</span><span class='dot token'>.</span><span class='content identifier id'>content</span><span class='lparen token'>(</span><span class='string val'>'image'</span><span class='comma token'>,</span> <span class='image_url identifier id'>image_url</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='response identifier id'>response</span> <span class='assign token'>=</span> <span class='Crack constant id'>Crack</span><span class='colon2 op'>::</span><span class='JSON constant id'>JSON</span><span class='dot token'>.</span><span class='parse identifier id'>parse</span> <span class='c identifier id'>c</span><span class='dot token'>.</span><span class='body_str identifier id'>body_str</span>
+  <span class='raise identifier id'>raise</span> <span class='ImgurError constant id'>ImgurError</span><span class='comma token'>,</span> <span class='response identifier id'>response</span><span class='lbrack token'>[</span><span class='string val'>&quot;rsp&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>&quot;error_msg&quot;</span><span class='rbrack token'>]</span> <span class='if if_mod kw'>if</span> <span class='response identifier id'>response</span><span class='lbrack token'>[</span><span class='string val'>&quot;rsp&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>&quot;stat&quot;</span><span class='rbrack token'>]</span> <span class='eq op'>==</span> <span class='string val'>&quot;fail&quot;</span>
+  <span class='response identifier id'>response</span><span class='lbrack token'>[</span><span class='string val'>&quot;rsp&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>&quot;image&quot;</span><span class='rbrack token'>]</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+</div>
+  </div>
+
+</div>
+    </div>
+    <div id="yard_info">
+  Generated on Thursday, October 15 2009 at 05:19:33 PM by 
+  <abbr class="yard" title="Yay! A Ruby Documentation Tool"><a href="http://yard.soen.ca">YARD</a></abbr> 
+  0.2.3.5 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>
