@@ -1,6 +1,6 @@
 = imgur
 
-Description goes here.
+The imgur gem provides a Ruby interface to the Imgur API.
 
 == Note on Patches/Pull Requests
  
